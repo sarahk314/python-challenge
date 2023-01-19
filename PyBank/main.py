@@ -2,17 +2,13 @@ import os
 import csv
 from pathlib import Path
 
-csvpath = Path("python-challenge", "PyBank", "budget_data.csv")
-csvreader = csv.reader(csvfile, delimiter=',')
-print(csvreader)
-csv_header = next(csvreader)
-print(f"CSV Header: {csv_header}")
+csvpath = os.path.join('Resources/budget_data.csv')
 
 total_months = []
 total_profit = []
 monthly_profit_change = []
 
-with open(cvspath, newline="", encoding= "utf-8") as budget:
+with open(csvpath, newline="", encoding= "utf-8") as budget:
     csvreader = csv.reader(budget, delimiter=",")
     header = next(csvreader)
 
@@ -36,20 +32,3 @@ print(f"Total: ${sum(total_profit)}")
 print(f"Average Change: {round(sum(monthly_profit_change)/len(monthly_profit_change),2)}")
 print(f"Greatest Increase in Profits: {total_months[max_increase_month]} (${(str(max_increase_value))})")
 print(f"Greatest Decrease in Profits: {total_months[max_decrease_month]} (${(str(max_decrease_value))})")
-
-output_file = Path("python-challenge", "PyBank", "Financial_Analysis_Summary.txt")
-
-with open(output_file,"w") as file:
-    file.write("Financial Analysis")
-    file.write("\n")
-    file.write("----------------------------")
-    file.write("\n")
-    file.write(f"Total Months: {len(total_months)}")
-    file.write("\n")
-    file.write(f"Total: ${sum(total_profit)}")
-    file.write("\n")
-    file.write(f"Average Change: {round(sum(monthly_profit_change)/len(monthly_profit_change),2)}")
-    file.write("\n")
-    file.write(f"Greatest Increase in Profits: {total_months[max_increase_month]} (${(str(max_increase_value))})")
-    file.write("\n")
-    file.write(f"Greatest Decrease in Profits: {total_months[max_decrease_month]} (${(str(max_decrease_value))})")
