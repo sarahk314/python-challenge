@@ -42,7 +42,7 @@ with open("Analysis.txt","w") as file:
     file.write("\n")
     file.write(f"Total: ${sum(total_profit)}")
     file.write("\n")
-    file.write(f"Average Change: {round(sum(monthly_profit_change)/len(monthly_profit_change),2)}")
+    file.write(f"Average Change: ${round(sum(monthly_profit_change)/len(monthly_profit_change),2)}")
     file.write("\n")
     file.write(f"Greatest Increase in Profits: {total_months[max_increase_month]} (${(str(max_increase_value))})")
     file.write("\n")
